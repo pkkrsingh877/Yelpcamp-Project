@@ -1,0 +1,25 @@
+{
+  "name": "yelpcamp-project",
+  "version": "1.0.0",
+  "description": "1. Initialize a project using npm\r 2. Install express, ejs and mongoose using npm",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkkrsingh877/Yelpcamp-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkkrsingh877/Yelpcamp-Project/issues"
+  },
+  "homepage": "https://github.com/pkkrsingh877/Yelpcamp-Project#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
+  }
+}
