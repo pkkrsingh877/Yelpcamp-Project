@@ -7,3 +7,4 @@
 5. Add ejs
 6. Add mongoose connection string 
 7. Create a campground model
+8. Create a route for entering campgrounds
