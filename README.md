@@ -8,3 +8,10 @@
 6. Add mongoose connection string 
 7. Create a campground model
 8. Create a route for entering campgrounds
+9. Create Campgrounds folder in view directory 
+10. Create index, show and add files for listing, viewing and adding campgrounds
+11. Create routes for listing, viewing and adding campgrounds
+12. Create edit page for editing the details of a campground
+13. Create edit route for editing
+14. Create delete button for deleting campground
+15. Create delete route for deleting campground
