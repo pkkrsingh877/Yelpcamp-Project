@@ -3,7 +3,12 @@ const app = express();
 const PORT = 3000;
 const path = require('path');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const Campground = require('./models/campground.js')
+
+// add middlewares
+app.use(morgan('tiny'));
+app.use(express.urlencoded({ extended: false }));
 
 // setting ejs up
 app.set('view engine', 'ejs');
@@ -17,6 +22,26 @@ try {
     console.log('DB CONNECTION FAILED!');
     console.log(err);
 }
+
+app.post('/campgrounds', async (req, res) => {
+    try {
+        const { title, description, location, price } = req.body;
+        const campground = await Campground.create({
+            title: title,
+            description: description,
+            location: location,
+            price: price
+        });
+        res.render('campgrounds/show', { campground });
+    } catch (err) {
+        console.log('Campground couldn\'t be added');
+        console.log(err);
+    }
+});
+
+app.get('/campgrounds/new', (req, res) => {
+    res.render('campgrounds/new');
+});
 
 app.get('/campgrounds/:id', async (req, res) => {
     const { id } = req.params;
