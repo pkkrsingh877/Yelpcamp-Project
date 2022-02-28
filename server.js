@@ -18,17 +18,6 @@ try {
     console.log(err);
 }
 
-app.get('/makecampground', async (req, res) => {
-    const campground = new Campground({
-        title: 'Area 27 Stage 3',
-        price: '23',
-        description: 'Fight against picoolo, and get a chance to fight against Launch and Emperor Pilaf. You can get lots of green gems.',
-        location: 'Area 27 Stage 3'
-    });
-    await campground.save();
-    res.send(campground);
-});
-
 app.get('/', async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('home', { campgrounds });
