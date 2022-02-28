@@ -25,6 +25,14 @@ try {
     console.log(err);
 }
 
+app.patch('/campgrounds/:id', (req, res) => {
+    try {
+        
+    } catch (err) {
+        
+    }
+});
+
 app.delete('/campgrounds/:id', async (req, res) => {
     try {
         const { id } = req.params;
