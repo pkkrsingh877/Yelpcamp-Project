@@ -29,8 +29,9 @@ app.get('/makecampground', async (req, res) => {
     res.send(campground);
 });
 
-app.get('/', (req, res) => {
-    res.render('home');
+app.get('/', async (req, res) => {
+    const campgrounds = await Campground.find({});
+    res.render('home', { campgrounds });
 });
 
 app.listen(PORT, () => {
