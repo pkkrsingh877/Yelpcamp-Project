@@ -4,10 +4,12 @@ const PORT = 3000;
 const path = require('path');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const Campground = require('./models/campground.js')
 
 // add middlewares
 app.use(morgan('tiny'));
+app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 
 // setting ejs up
@@ -22,6 +24,17 @@ try {
     console.log('DB CONNECTION FAILED!');
     console.log(err);
 }
+
+app.delete('/campgrounds/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Campground.findByIdAndDelete(id);
+        res.redirect('/campgrounds');
+    } catch (err) {
+        console.log('Couldn\'t delete the campground');
+        console.log(err);
+    }
+});
 
 app.post('/campgrounds', async (req, res) => {
     try {
