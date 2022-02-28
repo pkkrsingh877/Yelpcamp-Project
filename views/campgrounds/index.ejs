@@ -11,10 +11,7 @@
     <a href="/">Return to home</a>
     <% for( let index = 0; index < campgrounds.length; index++ ) { %>
         <article>
-            <pre>
-                Location: <%= campgrounds[index].location %> 
-                Title: <%= campgrounds[index].title %>
-            </pre> 
+            Title: <a href="/campgrounds/<%= campgrounds[index]._id %>"><%= campgrounds[index].title %></a>
         </article>
     <% } %>
 </body>
