@@ -18,9 +18,13 @@ try {
     console.log(err);
 }
 
-app.get('/', async (req, res) => {
+app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.find({});
-    res.render('home', { campgrounds });
+    res.render('campgrounds/index', { campgrounds });
+});
+
+app.get('/', async (req, res) => {
+    res.render('home');
 });
 
 app.listen(PORT, () => {
