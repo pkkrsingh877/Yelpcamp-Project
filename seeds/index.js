@@ -21,9 +21,11 @@ const seedDB = async () => {
         const camp = new Campground({
             location: `${cities[random25].city}, ${cities[random25].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251'
+            image: 'https://source.unsplash.com/collection/483251',
+            price: 100,
+            description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. At modi sit asperiores, dicta distinctio maiores nulla soluta quos deleniti voluptatibus ut temporibus iusto. Optio odio mollitia eos pariatur repellat accusantium.'
         })
-        console.log(`${i + 1}. ${cities[random1000].city}, ${cities[random1000].state}`);
+        console.log(`${i + 1}. ${cities[random25].city}, ${cities[random25].state}`);
         await camp.save();
     }
 }

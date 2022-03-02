@@ -1,14 +1,31 @@
-<%- include('../partials/top')  %> 
-    <h1>Campgrounds</h1>
-    <% for( let index = 0; index < campgrounds.length; index++ ) { %>
-        <article>
-            Title: <a href="/campgrounds/<%= campgrounds[index]._id %>"><%= campgrounds[index].title %></a>
-            <a href="/campgrounds/edit/<%= campgrounds[index]._id %> ">
-                Edit
-            </a>
-            <form action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE" method="POST">
-                <button>Delete</button>
-            </form>
-        </article>
-    <% } %>
-<%- include('../partials/bottom')  %>
+<%- include('../partials/top') %>
+<h1>Campgrounds</h1>
+<% for( let index = 0; index < campgrounds.length; index++ ) { %>
+<article class="card">
+	<div class="row">
+		<img
+			src="<%= campgrounds[index].image %>"
+			class="card-img-top img-fluid col-4" style="width: 18rem;"
+			alt="..."
+		/>
+		<div class="card-body col-8">
+			<h5 class="card-title"><%= campgrounds[index].title %></h5>
+			<p class="card-text"><%= campgrounds[index].description %></p>
+			<a
+				href="/campgrounds/<%= campgrounds[index]._id %> "
+				class="btn btn-primary"
+				>View Campground</a
+			>
+			<form
+				action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE"
+				method="POST"
+			>
+				<button class="btn btn-danger">Delete</button>
+				<a href="/campgrounds/edit/<%= campgrounds[index]._id %> " class="btn btn-primary">
+					Edit
+				</a>
+			</form>
+		</div>
+	</div>
+</article>
+<% } %> <%- include('../partials/bottom') %>
