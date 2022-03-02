@@ -1,7 +1,5 @@
 <%- include('../partials/top')  %> 
     <h1>Campgrounds</h1>
-    <a href="/">Return to home</a>
-    <a href="/campgrounds/new">Add A campground</a>
     <% for( let index = 0; index < campgrounds.length; index++ ) { %>
         <article>
             Title: <a href="/campgrounds/<%= campgrounds[index]._id %>"><%= campgrounds[index].title %></a>
