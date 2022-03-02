@@ -13,9 +13,9 @@
     <% for( let index = 0; index < campgrounds.length; index++ ) { %>
         <article>
             Title: <a href="/campgrounds/<%= campgrounds[index]._id %>"><%= campgrounds[index].title %></a>
-            <form action="/campgrounds/<%= campgrounds[index]._id %>?_method=EDIT" method="POST">
-                <button>Edit</button>
-            </form>
+            <a href="/campgrounds/edit/<%= campgrounds[index]._id %> ">
+                Edit
+            </a>
             <form action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE" method="POST">
                 <button>Delete</button>
             </form>

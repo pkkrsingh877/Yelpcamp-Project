@@ -25,7 +25,7 @@ try {
     console.log(err);
 }
 
-app.patch('/campgrounds/:id', (req, res) => {
+app.patch('/campgrounds/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { title, location, price, description } = req.body;
@@ -47,6 +47,16 @@ app.delete('/campgrounds/:id', async (req, res) => {
         res.redirect('/campgrounds');
     } catch (err) {
         console.log('Couldn\'t delete the campground');
+        console.log(err);
+    }
+});
+
+app.get('/campgrounds/edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const campground = await Campground.findById(id);
+        res.render('campgrounds/edit', { campground });
+    } catch (err) {
         console.log(err);
     }
 });
