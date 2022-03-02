@@ -27,9 +27,16 @@ try {
 
 app.patch('/campgrounds/:id', (req, res) => {
     try {
-        
+        const { id } = req.params;
+        const { title, location, price, description } = req.body;
+        const campground = await Campground.findByIdAndUpdate(id, {
+            title, location, price, description
+        }, { new: true });
+        console.log(campground);
+        res.redirect('/campgrounds');
     } catch (err) {
-        
+        console.log('Error in Updating...');
+        console.log(err);
     }
 });
 
@@ -65,14 +72,22 @@ app.get('/campgrounds/new', (req, res) => {
 });
 
 app.get('/campgrounds/:id', async (req, res) => {
-    const { id } = req.params;
-    const campground = await Campground.findById(id);
-    res.render('campgrounds/show', { campground });
+    try {
+        const { id } = req.params;
+        const campground = await Campground.findById(id);
+        res.render('campgrounds/show', { campground });
+    } catch (err) {
+        console.log('something went wrong');
+    }
 });
 
 app.get('/campgrounds', async (req, res) => {
-    const campgrounds = await Campground.find({});
-    res.render('campgrounds/index', { campgrounds });
+    try {
+        const campgrounds = await Campground.find({});
+        res.render('campgrounds/index', { campgrounds });
+    } catch (err) {
+        console.log('Something went wrong');
+    }
 });
 
 app.get('/', async (req, res) => {
