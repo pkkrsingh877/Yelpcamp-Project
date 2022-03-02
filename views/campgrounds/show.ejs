@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yelpcamp</title>
-</head>
-<body>
+<%- include('../partials/top')  %>
     <h1>Title: <%= campground.title %></h1>
     <a href="/campgrounds">Return to campgrounds</a>
     <article>
@@ -15,6 +7,4 @@
             Title: <%= campground.title %>
         </pre> 
     </article>
-
-</body>
-</html>
+<%- include('../partials/bottom')  %>
