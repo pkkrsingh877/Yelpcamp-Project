@@ -1,6 +1,6 @@
 <%- include('../partials/top') %>
 	<h1>Campgrounds</h1>
-	<% for( let index=0; index < campgrounds.length; index++ ) { %>
+	<% for( let index= campgrounds.length - 1; index >= 0; index-- ) { %>
 		<article class="card mb-3">
 			<div class="row">
 				<img src="<%= campgrounds[index].image %>" class="card-img-top img-fluid col-4" style="width: 18rem; max-height: 18rem; object-fit: cover;"

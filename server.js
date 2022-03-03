@@ -28,9 +28,9 @@ try {
 app.patch('/campgrounds/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, location, price, description } = req.body;
+        const { title, location, price, description, image } = req.body;
         const campground = await Campground.findByIdAndUpdate(id, {
-            title, location, price, description
+            title, location, price, description, image
         }, { new: true });
         console.log(campground);
         res.redirect('/campgrounds');
@@ -63,12 +63,13 @@ app.get('/campgrounds/edit/:id', async (req, res) => {
 
 app.post('/campgrounds', async (req, res) => {
     try {
-        const { title, description, location, price } = req.body;
+        const { title, description, location, price, image } = req.body;
         const campground = await Campground.create({
             title: title,
             description: description,
             location: location,
-            price: price
+            price: price,
+            image: image
         });
         res.render('campgrounds/show', { campground });
     } catch (err) {
