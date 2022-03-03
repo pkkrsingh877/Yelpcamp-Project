@@ -15,15 +15,15 @@
 					<p class="card-text text-muted">
 						<small><%= campgrounds[index].location %></small>
 					</p>
-					<a href="/campgrounds/<%= campgrounds[index]._id %> " class="btn btn-primary">View Campground</a>
-					<form action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE" method="POST">
-						<button class="btn btn-danger">Delete</button>
-						<a href="/campgrounds/edit/<%= campgrounds[index]._id %> " class="btn btn-primary">
-							Edit
-						</a>
-					</form>
+					<div class="d-flex flex-row wrap justify-content-between">
+						<a href="/campgrounds/<%= campgrounds[index]._id %> " class="btn btn-primary">Show</a>
+						<form action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger">Delete</button>
+						</form>
+						<a href="/campgrounds/edit/<%= campgrounds[index]._id %>" class="btn btn-primary"> Edit</a>
+					</div>
 				</div>
 			</div>
 		</article>
 		<% } %>
-			<%- include('../partials/bottom') %>
+<%- include('../partials/bottom') %>
