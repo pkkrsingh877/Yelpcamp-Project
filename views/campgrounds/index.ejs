@@ -1,31 +1,29 @@
 <%- include('../partials/top') %>
-<h1>Campgrounds</h1>
-<% for( let index = 0; index < campgrounds.length; index++ ) { %>
-<article class="card">
-	<div class="row">
-		<img
-			src="<%= campgrounds[index].image %>"
-			class="card-img-top img-fluid col-4" style="width: 18rem;"
-			alt="..."
-		/>
-		<div class="card-body col-8">
-			<h5 class="card-title"><%= campgrounds[index].title %></h5>
-			<p class="card-text"><%= campgrounds[index].description %></p>
-			<a
-				href="/campgrounds/<%= campgrounds[index]._id %> "
-				class="btn btn-primary"
-				>View Campground</a
-			>
-			<form
-				action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE"
-				method="POST"
-			>
-				<button class="btn btn-danger">Delete</button>
-				<a href="/campgrounds/edit/<%= campgrounds[index]._id %> " class="btn btn-primary">
-					Edit
-				</a>
-			</form>
-		</div>
-	</div>
-</article>
-<% } %> <%- include('../partials/bottom') %>
+	<h1>Campgrounds</h1>
+	<% for( let index=0; index < campgrounds.length; index++ ) { %>
+		<article class="card mb-3">
+			<div class="row">
+				<img src="<%= campgrounds[index].image %>" class="card-img-top img-fluid col-4" style="width: 18rem; max-height: 18rem; object-fit: cover;"
+					alt="..." />
+				<div class="card-body col-8">
+					<h5 class="card-title">
+						<%= campgrounds[index].title %>
+					</h5>
+					<p class="card-text">
+						<%= campgrounds[index].description %>
+					</p>
+					<p class="card-text text-muted">
+						<small><%= campgrounds[index].location %></small>
+					</p>
+					<a href="/campgrounds/<%= campgrounds[index]._id %> " class="btn btn-primary">View Campground</a>
+					<form action="/campgrounds/<%= campgrounds[index]._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-danger">Delete</button>
+						<a href="/campgrounds/edit/<%= campgrounds[index]._id %> " class="btn btn-primary">
+							Edit
+						</a>
+					</form>
+				</div>
+			</div>
+		</article>
+		<% } %>
+			<%- include('../partials/bottom') %>

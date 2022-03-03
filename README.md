@@ -15,3 +15,4 @@
 13. Create edit route for editing
 14. Create delete button for deleting campground
 15. Create delete route for deleting campground
+16. Created seeds folder and files for seeding data in the database

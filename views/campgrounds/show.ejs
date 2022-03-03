@@ -1,10 +1,13 @@
 <%- include('../partials/top')  %>
-    <h1>Title: <%= campground.title %></h1>
+    <h1><%= campground.title %></h1>
+    <small class="text-muted"><%= campground.location %> </small>
     <article>
-        <img src="<%= campground.image %>" alt="">
-        <pre>
-            Location: <%= campground.location %> 
-            Title: <%= campground.title %>
-        </pre> 
+        <figure>
+            <img src="<%= campground.image %>" alt="">
+            <figcaption><%= campground.title %></figcaption>
+        </figure>
+        <p><%= campground.description %></p>
+        <p>Book <%= campground.title %> for <b>$<%= campground.price %></b>
+        </p>
     </article>
 <%- include('../partials/bottom')  %>
