@@ -35,10 +35,10 @@ app.patch('/campgrounds/:id', async (req, res) => {
             title, location, price, description, image
         }, { new: true });
         console.log(campground);
-        res.redirect('/campgrounds/'+id);
+        res.redirect(`/campgrounds/${id}`);
     } catch (err) {
-        console.log('Error in Updating...');
         console.log(err);
+        res.end();
     }
 });
 
@@ -73,7 +73,7 @@ app.post('/campgrounds', async (req, res) => {
             price: price,
             image: image
         });
-        res.render('campgrounds/show', { campground });
+        res.redirect(`campgrounds/${campground.id}`);
     } catch (err) {
         console.log('Campground couldn\'t be added');
         console.log(err);
