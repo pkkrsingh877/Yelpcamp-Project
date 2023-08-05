@@ -16,3 +16,8 @@
 14. Create delete button for deleting campground
 15. Create delete route for deleting campground
 16. Created seeds folder and files for seeding data in the database
+
+Date: 05-08-2023
+
+17. Got Mongo and mongoose up and running
+18. Implemented ejs-mate
