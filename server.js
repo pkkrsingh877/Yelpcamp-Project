@@ -35,7 +35,7 @@ app.patch('/campgrounds/:id', async (req, res) => {
             title, location, price, description, image
         }, { new: true });
         console.log(campground);
-        res.redirect('/campgrounds');
+        res.redirect('/campgrounds/'+id);
     } catch (err) {
         console.log('Error in Updating...');
         console.log(err);
@@ -105,7 +105,12 @@ app.get('/campgrounds', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-    res.render('home');
+    try {
+        const campgrounds = await Campground.find({});
+        res.render('home', { campgrounds });
+    } catch (error) {
+        res.send(error);
+    }
 });
 
 app.listen(PORT, () => {

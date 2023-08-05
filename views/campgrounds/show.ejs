@@ -1,10 +1,10 @@
 <% layout('./layouts/boilerplate') -%>
     <section class="row">
-        <div class="col-6 offset-3">
+        <div class="col-12">
             <h1><%= campground.title %></h1>
             <article class="card">
                 <figure>
-                    <img src="<%= campground.image %>" alt="" class="card-img-top">
+                    <img src="<%= campground.image %>" alt="" class="card-img-top" style="width: auto-fit; max-height: 24rem;  object-fit: cover;">
                     <!-- <figcaption></figcaption> -->
                 </figure>
                 <div class="card-body">
@@ -12,7 +12,7 @@
                     <p class="card-text"><small class="text-muted"><%= campground.location %> </small></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">$<%= campground.price %></li>
+                <li class="list-group-item text-muted">$<%= campground.price %>/per night</li>
                 <li class="list-group-item"><%= campground.description %></li>
                 </ul>  
                 <div class="card-body">
@@ -21,8 +21,8 @@
                         <button class="btn btn-danger">Delete</button>
                     </form>
                 </div>
-                <div class="card-footer">
-                    <a href="/campgrounds" class="btn btn-primary">Back</a>
+                <div class="card-footer d-flex">
+                    <p class="text-muted small">4 days ago</p>
                 </div>
             </article>
         </div>
