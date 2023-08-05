@@ -21,3 +21,7 @@ Date: 05-08-2023
 
 17. Got Mongo and mongoose up and running
 18. Implemented ejs-mate
+
+# Potential Errors The Might Occur Further Down The Line
+
+1. Just didn't focus and change everything colt was changing as far as navbar and footer are concerned
