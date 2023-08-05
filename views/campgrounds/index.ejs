@@ -1,4 +1,4 @@
-<%- include('../partials/top') %>
+<% layout('./layouts/boilerplate') -%>
 	<h1>Campgrounds</h1>
 	<% for( let index= campgrounds.length - 1; index >= 0; index-- ) { %>
 		<article class="card mb-3">
@@ -26,4 +26,3 @@
 			</div>
 		</article>
 		<% } %>
-<%- include('../partials/bottom') %>

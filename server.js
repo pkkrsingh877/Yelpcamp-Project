@@ -5,7 +5,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
-const Campground = require('./models/campground.js')
+const Campground = require('./models/campground.js');
+const ejsMate = require('ejs-mate');
 
 // add middlewares
 app.use(morgan('tiny'));
@@ -13,12 +14,13 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 
 // setting ejs up
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // setting mongoose up
 try {
-    mongoose.connect('mongodb://localhost:27017/yelpcamp');
+    mongoose.connect('mongodb://127.0.0.1:27017/yelpcamp');
     console.log('DB CONNECTION SUCCESSFUL!');
 } catch (err) {
     console.log('DB CONNECTION FAILED!');
@@ -98,6 +100,7 @@ app.get('/campgrounds', async (req, res) => {
         res.render('campgrounds/index', { campgrounds });
     } catch (err) {
         console.log('Something went wrong');
+        res.render(err);
     }
 });
 
